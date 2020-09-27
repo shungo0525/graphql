@@ -1,5 +1,12 @@
 module Types
   class QueryType < Types::BaseObject
+    # field :users, resolver: Resolvers::QueryTypes::UsersResolver
+
+    field :users, [Types::UserType], null: false
+    def users
+      User.all
+    end
+
     field :posts, [Types::PostType], null: false
     def posts
       Post.all
