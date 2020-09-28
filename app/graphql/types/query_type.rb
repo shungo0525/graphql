@@ -1,11 +1,11 @@
 module Types
   class QueryType < Types::BaseObject
-    # field :users, resolver: Resolvers::QueryTypes::UsersResolver
+    field :users, resolver: Resolvers::QueryTypes::UsersResolver
 
-    field :users, [Types::UserType], null: false
-    def users
-      User.all
-    end
+    # field :users, [Types::UserType], null: false
+    # def users
+    #   User.all
+    # end
 
     field :posts, [Types::PostType], null: false
     def posts
@@ -26,9 +26,9 @@ module Types
     end
 
     # N+1問題を考慮
-    field :comments, [Types::CommentType], null: false
+    # field :comments, [Types::CommentType], null: false
     def comments
-      Comment.includes(:post).all
+      Comment.all
     end
   end
 end
