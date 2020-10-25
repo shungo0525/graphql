@@ -1,16 +1,17 @@
 module Types
   class QueryType < Types::BaseObject
     field :users, resolver: Resolvers::QueryTypes::UsersResolver
+    field :posts, resolver: Resolvers::QueryTypes::PostsResolver
 
     # field :users, [Types::UserType], null: false
     # def users
     #   User.all
     # end
 
-    field :posts, [Types::PostType], null: false
-    def posts
-      Post.all
-    end
+    # field :posts, [Types::PostType], null: false
+    # def posts
+    #   Post.all
+    # end
 
     # ページネーション有り(pagination)
     field :posts_pagination, Types::PostType.connection_type, null: false

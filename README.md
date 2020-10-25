@@ -13,7 +13,7 @@
       id
       content
     }
-  }   
+  }
 }
 ```
 
@@ -28,7 +28,7 @@
       id
       content
     }
-  }   
+  }
 }
 ```
 
@@ -69,7 +69,7 @@
       title
       description
     }
-  }   
+  }
 }
 ```
 
@@ -77,26 +77,31 @@
 
 ## create_post
 ```
-mutation { 
+mutation {
   createPost(
     input:{
       title: "title"
       description: "description"
+      userId: 1
     }
   ){
     post {
       id
       title
       description
+      user{
+        name
+        email
+      }
     }
-  }   
+  }
 }
 ```
 
 
 ## update_post
 ```
-mutation { 
+mutation {
   updatePost(
     input:{
       id: 1
@@ -109,14 +114,14 @@ mutation {
       title
       description
     }
-  }   
+  }
 }
 ```
 
 
 ## delete_post
 ```
-mutation { 
+mutation {
   deletePost(
     input:{
       id: 1
@@ -127,7 +132,7 @@ mutation {
       title
       description
     }
-  }   
+  }
 }
 ```
 
