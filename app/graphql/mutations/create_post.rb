@@ -10,7 +10,14 @@ module Mutations
 
 
     def resolve(**args)
-      post = Post.create(title: args[:title], description: args[:description], user_id: args[:user_id])
+      post = Post.new(title: args[:title], description: args[:description], user_id: args[:user_id])
+
+      post.save
+      if post.save!
+        post
+      else
+        raise GraphQL::ExecutionError, post.errors.full_messages
+      end
       {
         post: post
       }
